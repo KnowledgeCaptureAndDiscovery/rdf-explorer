@@ -1,5 +1,6 @@
 import express, { Express, Request, Response, Application } from "express";
 import dotenv from "dotenv";
+import config from "./config/production";
 
 //For env File
 dotenv.config();
@@ -18,6 +19,7 @@ app.get("/", (req: Request, res: Response) => {
     },
 
     "text/turtle": function () {
+      console.log("sending query " + config.endpoint.url);
       res.send({ message: "Welcome to the home page!" });
     },
 
