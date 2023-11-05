@@ -1,5 +1,4 @@
 import { Parser, Generator } from "sparqljs";
-import { SparqlEndpointFetcher } from "fetch-sparql-endpoint";
 import { QueryEngine } from "@comunica/query-sparql";
 
 import config from "./config/production";
