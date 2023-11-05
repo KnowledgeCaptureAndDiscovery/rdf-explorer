@@ -8,10 +8,19 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
+    "@comunica/query-sparql": "^2.10.0",
+    "@rdfjs/serializer-ntriples": "rdfjs/serializer-ntriples",
+    "@rdfjs/serializer-turtle": "^1.1.1",
+    "@types/rdfjs__serializer-ntriples": "^2.0.4",
+    "@types/sparql-http-client": "^2.2.11",
     "@types/sparqljs": "^3.1.7",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "sparqljs": "^3.7.1"
+    "fetch-sparql-endpoint": "^4.1.0",
+    "mime-types": "^2.1.35",
+    "sparql-http-client": "^2.4.2",
+    "sparqljs": "^3.7.1",
+    "types/": "rdfjs/serializer-ntriples"
   },
   "scripts": {
     "build": "npx tsc",
