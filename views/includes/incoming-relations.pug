@@ -1,4 +1,4 @@
-table
+table(class='table table-striped')
   thead
     tr
       th Subject
@@ -8,11 +8,11 @@ table
       tr
         td
           if quad.subject.termType == 'NamedNode'
-            a(href=quad.object) #{quad.object.value}
+            a(href=quad.object.value) #{toPrefix(quad.object.value)}
           else
-            span #{quad.object.value}
+            span #{toPrefix(quad.object.value)}
         td
           if quad.predicate.termType == 'NamedNode'
-            a(href=quad.predicate) #{quad.predicate.value}
+            a(href=quad.predicate.value) #{toPrefix(quad.predicate.value)}
           else
-            span #{quad.predicate.value}
+            span #{toPrefix(quad.predicate.value)}
