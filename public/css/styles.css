@@ -1,0 +1,46 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+#container {
+  min-height: 100%;
+  position: relative;
+}
+#body {
+  padding-bottom: 75px; /* Height of the footer */
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 75px; /* Height of the footer */
+}
+.row-table {
+  border-top: 1px solid #d3d3d3;
+  margin: 0px 0px 0px 0px;
+  padding: 10px 0px 10px 0px;
+}
+.row-table:hover {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+.row-table-title {
+  font-weight: bold;
+  word-wrap: break-word;
+}
+.row-table-values > div {
+  max-width: 100%;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+
+#tutor {
+  text-align: center;
+  cursor: pointer;
+}
+#tutor:hover {
+  text-width: bold;
+  color: steelblue;
+  text-decoration: underline;
+}
