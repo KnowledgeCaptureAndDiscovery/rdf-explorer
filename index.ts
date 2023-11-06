@@ -1,16 +1,15 @@
 import express, { Request, Response, Application } from "express";
-import dotenv from "dotenv";
-import performQuery from "./query";
+import { performQuery, performQueryHtml } from "./query";
 const app: Application = express();
 const port = process.env.PORT || 8000;
 
 app.get("/*", (req: Request, res: Response) => {
-  //Get path, query, fragment from the request
   const { path } = req;
   const uri = `https:/${path}`;
   res.format({
-    "text/html": function () {
-      res.send("<p>Welcome to the home page!</p>");
+    "text/html": async function () {
+      const quads = await performQueryHtml(uri);
+      return res.send(quads.toString());
     },
     "application/n-quads": async function () {
       const stream = await performQuery(uri, "application/n-quads");
