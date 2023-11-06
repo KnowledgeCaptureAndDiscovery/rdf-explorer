@@ -13,6 +13,13 @@ const performQueryHtml = async (uri: string) => {
   return quads;
 };
 
+const performIncomingQueryHtml = async (uri: string) => {
+  const query = createQueryIncoming(uri);
+  const stream = await sendQueryQuads(query);
+  const quads = await stream.toArray();
+  return quads;
+};
+
 const performQuery = async (uri: string, format: string) => {
   const query = createQuery(uri);
   const result = await sendQuery(query);
@@ -48,4 +55,15 @@ const createQuery = (uri: string): string => {
   return generator.stringify(parsedQuery);
 };
 
-export { performQueryHtml, performQuery };
+const createQueryIncoming = (uri: string): string => {
+  const parser = new Parser();
+  const query = `CONSTRUCT { ?s ?p <${uri}> }
+  WHERE  {
+    GRAPH ?g
+    { ?s ?p <${uri}> }
+  }`;
+  const parsedQuery = parser.parse(query);
+  return generator.stringify(parsedQuery);
+};
+
+export { performQueryHtml, performQuery, performIncomingQueryHtml };

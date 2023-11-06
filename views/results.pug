@@ -1,0 +1,12 @@
+extends default
+
+block content
+  main.container(role="main")
+    div.row(style="padding-top:20px")
+      div.col-md-1
+      div.col-md-10
+        h1(style="text-align: center; padding-bottom:10px;") #{title}
+        h2(style="text-align: center; padding-bottom:10px;")  Outgoing relations
+        include includes/outcoming-relations.pug
+        h2(style="text-align: center; padding-bottom:10px;")  Incoming relations
+        include includes/incoming-relations.pug

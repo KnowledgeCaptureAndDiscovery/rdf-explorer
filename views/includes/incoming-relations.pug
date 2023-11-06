@@ -1,0 +1,18 @@
+table
+  thead
+    tr
+      th Subject
+      th Predicate
+  tbody
+    each quad in incomingQuads
+      tr
+        td
+          if quad.subject.termType == 'NamedNode'
+            a(href=quad.object) #{quad.object.value}
+          else
+            span #{quad.object.value}
+        td
+          if quad.predicate.termType == 'NamedNode'
+            a(href=quad.predicate) #{quad.predicate.value}
+          else
+            span #{quad.predicate.value}
