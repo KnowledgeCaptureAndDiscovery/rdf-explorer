@@ -1,6 +1,6 @@
 import { Parser, Generator } from "sparqljs";
 import { QueryEngine } from "@comunica/query-sparql";
-import config from "./config/config";
+import config from "../config/config";
 
 const myEngine = new QueryEngine();
 const generator = new Generator();
@@ -28,13 +28,13 @@ const performQuery = async (uri: string, format: string) => {
 
 const sendQuery = async (query: string) => {
   return await myEngine.query(query, {
-    sources: [config.endpoint.endpointUrl],
+    sources: [config.endpoint.sparqlUrl],
   });
 };
 
 const sendQueryQuads = async (query: string) => {
   return await myEngine.queryQuads(query, {
-    sources: [config.endpoint.endpointUrl],
+    sources: [config.endpoint.sparqlUrl],
   });
 };
 

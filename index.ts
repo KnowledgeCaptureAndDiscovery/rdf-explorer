@@ -41,8 +41,12 @@ app.get("/*", (req: Request, res: Response) => {
   const uri = `https:/${path}`;
   res.format({
     "text/html": async () => {
-      const data = await handleQueryHtml(uri);
-      return res.render("results", data);
+      try {
+        const data = await handleQueryHtml(uri);
+        return res.render("results", data);
+      } catch (error) {
+        return res.status(404).send("Not Found");
+      }
     },
     "application/n-quads": async () => {
       return (await handleQuery(uri, "application/n-quads")).pipe(res);
@@ -53,6 +57,12 @@ app.get("/*", (req: Request, res: Response) => {
     "application/rdf+xml": async function () {
       return (await handleQuery(uri, "application/rdf+xml")).pipe(res);
     },
+    "application/n3": async function () {
+      return (await handleQuery(uri, "application/n3")).pipe(res);
+    },
+    "text/n3": async function () {
+      return (await handleQuery(uri, "text/n3")).pipe(res);
+    },
     "application/trig": async function () {
       return (await handleQuery(uri, "application/trig")).pipe(res);
     },
@@ -61,6 +71,9 @@ app.get("/*", (req: Request, res: Response) => {
     },
     "application/turtle": async function () {
       return (await handleQuery(uri, "application/turtle")).pipe(res);
+    },
+    "text/turtle": async function () {
+      return (await handleQuery(uri, "text/turtle")).pipe(res);
     },
     "application/x-turtle": async function () {
       return (await handleQuery(uri, "application/x-turtle")).pipe(res);

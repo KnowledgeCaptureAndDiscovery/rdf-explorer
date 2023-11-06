@@ -1,4 +1,4 @@
-import config from "./config/config";
+import config from "../config/config";
 
 const prefixes = config.prefixes;
 const toPrefix = (uri: string) => {
