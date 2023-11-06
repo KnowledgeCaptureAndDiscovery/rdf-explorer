@@ -1,7 +1,6 @@
 import { Parser, Generator } from "sparqljs";
 import { QueryEngine } from "@comunica/query-sparql";
-
-import config from "./config/production";
+import config from "./config/config";
 
 const myEngine = new QueryEngine();
 const generator = new Generator();
@@ -46,7 +45,8 @@ const serializeResults = async (result: any, format: string) => {
 
 const createQuery = (uri: string): string => {
   const parser = new Parser();
-  const query = `CONSTRUCT { <${uri}> ?p ?o }
+  const query = `
+  CONSTRUCT { <${uri}> ?p ?o }
   WHERE  {
     GRAPH ?g
     { <${uri}> ?p ?o }
@@ -57,7 +57,8 @@ const createQuery = (uri: string): string => {
 
 const createQueryIncoming = (uri: string): string => {
   const parser = new Parser();
-  const query = `CONSTRUCT { ?s ?p <${uri}> }
+  const query = `
+  CONSTRUCT { ?s ?p <${uri}> }
   WHERE  {
     GRAPH ?g
     { ?s ?p <${uri}> }
