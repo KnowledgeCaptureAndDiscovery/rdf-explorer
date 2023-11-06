@@ -1,6 +1,9 @@
 const config = {
   endpoint: {
-    url: "https://endpoint.mint.isi.edu/provenance/query",
+    endpointUrl: "https://endpoint.mint.isi.edu/provenance",
+    // updateUrl: "https://endpoint.mint.isi.edu/provenance/update",
+    // user: "dba",
+    // password: "dba",
   },
 };
 
