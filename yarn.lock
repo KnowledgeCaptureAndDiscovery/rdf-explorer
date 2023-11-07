@@ -2323,9 +2323,9 @@
   integrity sha512-HlJjF3wxV4R2VQkFpKe0YqJLilYNgtRtsqqZtby7RkVsSs+i+vbyzjtUwpFEdUCKcrGzCiEJE7F/0mKjh0sunA==
 
 "@types/uritemplate@^0.3.4":
-  version "0.3.5"
-  resolved "https://registry.npmjs.org/@types/uritemplate/-/uritemplate-0.3.5.tgz"
-  integrity sha512-QzBlDy2bmD7WQB1q++EOFXGa42NtQpWbO4XPGY0Y5/0Eyb7z5je0625eSypMJiAqXmLrj76X0xlZNndeXGpNYQ==
+  version "0.3.6"
+  resolved "https://registry.yarnpkg.com/@types/uritemplate/-/uritemplate-0.3.6.tgz#1eb0e8075ece916869d88c9542824c91db80703e"
+  integrity sha512-31BMGZ8GgLxgXxLnqg4KbbyYJjU1flhTTD2+PVQStVUPXSk0IIpK0zt+tH3eLT7ZRwLnzQw6JhYx69qza3U0wg==
 
 "@types/uuid@^9.0.0":
   version "9.0.6"
