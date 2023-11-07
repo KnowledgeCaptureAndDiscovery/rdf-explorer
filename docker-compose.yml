@@ -3,5 +3,7 @@ services:
   rdf-explorer:
     image: ghcr.io/mosoriob/rdf-explorer:main
     command: yarn start
+    env_file:
+      - .env
     ports:
       - 8000:8000
