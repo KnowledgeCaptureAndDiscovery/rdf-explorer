@@ -1,46 +1,24 @@
 import express, { Request, Response, Application } from "express";
-import {
-  performIncomingQueryHtml,
-  performQuery,
-  performQueryHtml,
-} from "./src/query";
-import { toPrefix } from "./src/utils";
 import pino from "pino-http";
-import config from "./config/config";
+import { performQuery } from "./src/query";
+import { config } from "./src/config";
+import { handleQueryHtml } from "./src/renderHtml";
 
+//set express
 const app: Application = express();
-const port = process.env.PORT || 8000;
+const port = config.port;
 const publicDirectory = __dirname + "/public/";
 const logger = pino({
   level: config.logLevel,
   autoLogging: false,
 });
+
 app.set("view engine", "pug");
 app.use(express.static(publicDirectory));
 app.use(logger);
 
-const handleQueryHtml = async (uri: string) => {
-  const outcomingQuads = await performQueryHtml(uri as string);
-  const incomingQuads = await performIncomingQueryHtml(uri as string);
-  if (outcomingQuads.length === 0 && incomingQuads.length === 0) {
-    throw new Error("Not Found");
-  }
-  const title = getTitle();
-  return {
-    incomingQuads: incomingQuads,
-    outcomingQuads: outcomingQuads,
-    title: title,
-    toPrefix: toPrefix,
-  };
-  function getTitle() {
-    return outcomingQuads.length > 0
-      ? outcomingQuads[0].subject.value
-      : incomingQuads[0].object.value;
-  }
-};
-
 const handleQuery = async (uri: string, format: string) => {
-  return await performQuery(uri, format);
+  return await performQuery(uri, format, config.sparqlQueryUrl);
 };
 
 app.get("/*", (req: Request, res: Response) => {
@@ -50,7 +28,7 @@ app.get("/*", (req: Request, res: Response) => {
   res.format({
     "text/html": async () => {
       try {
-        const data = await handleQueryHtml(uri);
+        const data = await handleQueryHtml(uri, config.sparqlQueryUrl);
         return res.render("results", data);
       } catch (error) {
         return res.status(404).send("Not Found");
@@ -98,4 +76,5 @@ app.get("/*", (req: Request, res: Response) => {
 
 app.listen(port, () => {
   console.log(`Server is Fire at http://localhost:${port}`);
+  console.log(`Sparql endpoint is ${config.sparqlQueryUrl}`);
 });

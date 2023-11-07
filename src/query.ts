@@ -1,40 +1,39 @@
 import { Parser, Generator } from "sparqljs";
 import { QueryEngine } from "@comunica/query-sparql";
-import config from "../config/config";
 
 const myEngine = new QueryEngine();
 const generator = new Generator();
 
-const performQueryHtml = async (uri: string) => {
+const performQueryHtml = async (uri: string, endpoint: string) => {
   const query = createQuery(uri);
-  const stream = await sendQueryQuads(query);
+  const stream = await sendQueryQuads(query, endpoint);
   const quads = await stream.toArray();
   return quads;
 };
 
-const performIncomingQueryHtml = async (uri: string) => {
+const performIncomingQueryHtml = async (uri: string, endpoint: string) => {
   const query = createQueryIncoming(uri);
-  const stream = await sendQueryQuads(query);
+  const stream = await sendQueryQuads(query, endpoint);
   const quads = await stream.toArray();
   return quads;
 };
 
-const performQuery = async (uri: string, format: string) => {
+const performQuery = async (uri: string, format: string, endpoint: string) => {
   const query = createQuery(uri);
-  const result = await sendQuery(query);
+  const result = await sendQuery(query, endpoint);
   const triples = serializeResults(result, format);
   return triples;
 };
 
-const sendQuery = async (query: string) => {
+const sendQuery = async (query: string, endpoint: string) => {
   return await myEngine.query(query, {
-    sources: [config.endpoint.sparqlUrl],
+    sources: [endpoint],
   });
 };
 
-const sendQueryQuads = async (query: string) => {
+const sendQueryQuads = async (query: string, endpoint: string) => {
   return await myEngine.queryQuads(query, {
-    sources: [config.endpoint.sparqlUrl],
+    sources: [endpoint],
   });
 };
 
