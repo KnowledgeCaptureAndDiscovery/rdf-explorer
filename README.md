@@ -16,11 +16,19 @@ yarn start
 
 ### Configuration
 
-The application can be configured by editing the `config/config.ts` file. The following parameters are available:
+The application can be configured by using environment variables. The following variables are supported:
 
-- `port`: The port where the application will be listening.
-- `endpoint.sparql`: The URL of the SPARQL endpoint to be used.
-- `prefixes`: A list of prefixes to be used in the application. Each prefix is defined as a pair of `prefix` and `uri`.
+- `PORT`: The port where the application will be listening.
+- `LOGLEVEL`: The log level. The possible values are `DEBUG`, `INFO`, `WARN`, and `ERROR`.
+- `SPARQL_QUERY_URL`: The URL of the SPARQL endpoint to be used.
+
+You can use an `.env` file to set environment variables. For example, this command creates an `.env` file for our PROVENANCE endpoint:
+
+```bash
+$ echo 'SPARQL_QUERY_URL="https://endpoint.mint.isi.edu/provenance"
+PORT=8000
+LOGLEVEL=INFO' > .env
+```
 
 ### Usage
 
@@ -32,7 +40,7 @@ RDF Explorer will show the information of the resource, including its attributes
 
 #### Content negotiation
 
-RDF Explorer supports content negotiation. You can get the information of a resource in different formats by using the `Accept` header. For example, to get the information of `http://dbpedia.org/resource/Spain` in Turtle format, you can use the following command:
+RDF Explorer supports content negotiation. You can get the information of a resource in different formats by using the `Accept` header. For example, to get the information of `https://opmw.org/exportTest/resource/WorkflowExecutionAccount/Caesar_Cypher-2b-3c5e9dd8-6c44-4666-a6a2-cf572aca76db` in Turtle format, you can use the following command:
 
 ```bash
 curl -H "Accept: text/turtle" http://localhost:8000/opmw.org/exportTest/resource/WorkflowExecutionAccount/Caesar_Cypher-2b-3c5e9dd8-6c44-4666-a6a2-cf572aca76db
