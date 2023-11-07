@@ -7,7 +7,7 @@ table(class='table table-striped')
   tbody
     each quad in incomingQuads
       tr
-        td.
+        td
           if quad.subject.termType == 'NamedNode'
             a(href=quad.subject.value) #{toPrefix(quad.subject.value)}
           else
