@@ -1,9 +1,8 @@
-import config from "../config/config";
+import { PREFIXES } from "./prefixes";
+import { Prefix } from "./types";
 
-const prefixes = config.prefixes;
-const toPrefix = (uri: string) => {
-  //transform this uri to prefix notation.
-  for (const i in prefixes) {
+const toPrefix = (uri: string, prefixes: Prefix[]) => {
+  for (const i in PREFIXES) {
     if (uri.includes(prefixes[i].uri)) {
       return uri.replace(prefixes[i].uri, prefixes[i].prefix);
     }
