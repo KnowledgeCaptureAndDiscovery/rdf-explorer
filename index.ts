@@ -5,12 +5,19 @@ import {
   performQueryHtml,
 } from "./src/query";
 import { toPrefix } from "./src/utils";
+import pino from "pino-http";
+import config from "./config/config";
 
 const app: Application = express();
 const port = process.env.PORT || 8000;
 const publicDirectory = __dirname + "/public/";
+const logger = pino({
+  level: config.logLevel,
+  autoLogging: false,
+});
 app.set("view engine", "pug");
 app.use(express.static(publicDirectory));
+app.use(logger);
 
 const handleQueryHtml = async (uri: string) => {
   const outcomingQuads = await performQueryHtml(uri as string);
@@ -39,6 +46,7 @@ const handleQuery = async (uri: string, format: string) => {
 app.get("/*", (req: Request, res: Response) => {
   const { path } = req;
   const uri = `https:/${path}`;
+  req.log.info(`Request for ${uri}`);
   res.format({
     "text/html": async () => {
       try {

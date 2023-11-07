@@ -2,6 +2,7 @@ const config = {
   endpoint: {
     sparqlUrl: "https://endpoint.mint.isi.edu/provenance",
   },
+  logLevel: "info",
   prefixes: [
     { prefix: "owl:", uri: "http://www.w3.org/2002/07/owl#" },
     { prefix: "dc:", uri: "http://purl.org/dc/terms/" },
