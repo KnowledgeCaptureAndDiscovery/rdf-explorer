@@ -2207,9 +2207,9 @@
   integrity sha512-pP0P/9BnCj1OVvQR2lF41EkDG/lWWnDyA203b/4Fmi2eTyORnBtcDoKDwjWQthELrBvWkMOrvSOnZ8OVlW6tXA==
 
 "@types/http-link-header@^1.0.1":
-  version "1.0.4"
-  resolved "https://registry.npmjs.org/@types/http-link-header/-/http-link-header-1.0.4.tgz"
-  integrity sha512-UeasLdPPSfmX45RH6h1lo932WfQUTuc1adQCpPioqRRVBM25dWwIPDBhM0CjWbdflmvr8vIzQg48yk1JzylhXg==
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@types/http-link-header/-/http-link-header-1.0.5.tgz#732f04e2eabdfdaf3cc48d44aa15026e1e2d6e91"
+  integrity sha512-AxhIKR8UbyoqCTNp9rRepkktHuUOw3DjfOfDCaO9kwI8AYzjhxyrvZq4+mRw/2daD3hYDknrtSeV6SsPwmc71w==
   dependencies:
     "@types/node" "*"
 
