@@ -1,10 +1,9 @@
 import { PREFIXES } from "./prefixes";
-import { Prefix } from "./types";
 
-const toPrefix = (uri: string, prefixes: Prefix[]) => {
+const toPrefix = (uri: string) => {
   for (const i in PREFIXES) {
-    if (uri.includes(prefixes[i].uri)) {
-      return uri.replace(prefixes[i].uri, prefixes[i].prefix);
+    if (uri.includes(PREFIXES[i].uri)) {
+      return uri.replace(PREFIXES[i].uri, PREFIXES[i].prefix);
     }
   }
   return uri;
