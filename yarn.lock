@@ -4343,9 +4343,9 @@ rdfa-streaming-parser@^2.0.1:
     relative-to-absolute-iri "^1.0.2"
 
 rdfxml-streaming-parser@^2.2.3:
-  version "2.2.3"
-  resolved "https://registry.npmjs.org/rdfxml-streaming-parser/-/rdfxml-streaming-parser-2.2.3.tgz"
-  integrity sha512-HoH8urnga+YQ5sDY9ufRb0wg6FvwR284sSXpZ+fJE5X5Oej6dfzkFer81uBNZzyNmzJR1TpMYMznyXEjPMLhCA==
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/rdfxml-streaming-parser/-/rdfxml-streaming-parser-2.3.0.tgz#9f33b228cfc0d6ee79d7632c60227ec829d58a63"
+  integrity sha512-t8O4v7UUw4aRKIdro68p0YdpP/xbv6GGpEe05HAXbsTo4OTELx/vBzAciTP+P51O6TaywVSXPAsPyK9/sQRT8A==
   dependencies:
     "@rdfjs/types" "*"
     "@rubensworks/saxes" "^6.0.1"
