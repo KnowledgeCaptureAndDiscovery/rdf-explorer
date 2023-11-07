@@ -20,7 +20,7 @@ The application can be configured by using environment variables. The following 
 
 - `PORT`: The port where the application will be listening.
 - `LOGLEVEL`: The log level. The possible values are `DEBUG`, `INFO`, `WARN`, and `ERROR`.
-- `SPARQL_QUERY_URL`: The URL of the SPARQL endpoint to be used.
+- `SPARQL_QUERY_URL`: The URL of the SPARQL endpoint to be used. A instance of RDF Explorer can only be used with one dataset. If you want to use RDF Explorer with multiple datasets, you need to run multiple instances of RDF Explorer.
 
 You can use an `.env` file to set environment variables. For example, this command creates an `.env` file for our PROVENANCE endpoint:
 
