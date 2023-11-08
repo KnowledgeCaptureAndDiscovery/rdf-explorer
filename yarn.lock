@@ -3604,7 +3604,7 @@ json-stable-stringify-without-jsonify@^1.0.1:
   resolved "https://registry.npmjs.org/json-stable-stringify-without-jsonify/-/json-stable-stringify-without-jsonify-1.0.1.tgz"
   integrity sha512-Bdboy+l7tA3OGW6FjyFHWkP5LuByj1Tk33Ljyq0axyzdk9//JSi2u3fP1QSmd1KNwq6VOKYGlAu87CisVir6Pw==
 
-jsonld-context-parser@^2.0.0, jsonld-context-parser@^2.0.2, jsonld-context-parser@^2.1.1, jsonld-context-parser@^2.2.2, jsonld-context-parser@^2.3.0:
+jsonld-context-parser@^2.0.0, jsonld-context-parser@^2.0.2, jsonld-context-parser@^2.1.1, jsonld-context-parser@^2.2.2:
   version "2.3.3"
   resolved "https://registry.npmjs.org/jsonld-context-parser/-/jsonld-context-parser-2.3.3.tgz"
   integrity sha512-H+REInOx7XI2ciF8wJV31D20Bh+ofBmEjN2Tkds51vypqDJIiD341E5g+hYyrEInIKRnbW58TN/Ehz+ACT0l0w==
@@ -3616,10 +3616,21 @@ jsonld-context-parser@^2.0.0, jsonld-context-parser@^2.0.2, jsonld-context-parse
     http-link-header "^1.0.2"
     relative-to-absolute-iri "^1.0.5"
 
+jsonld-context-parser@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/jsonld-context-parser/-/jsonld-context-parser-2.4.0.tgz#fae15a56c5ceabd1c4520ab1a9cc12c9a0a8b67d"
+  integrity sha512-ZYOfvh525SdPd9ReYY58dxB3E2RUEU4DJ6ZibO8AitcowPeBH4L5rCAitE2om5G1P+HMEgYEYEr4EZKbVN4tpA==
+  dependencies:
+    "@types/http-link-header" "^1.0.1"
+    "@types/node" "^18.0.0"
+    cross-fetch "^3.0.6"
+    http-link-header "^1.0.2"
+    relative-to-absolute-iri "^1.0.5"
+
 jsonld-streaming-parser@^3.0.1:
-  version "3.2.1"
-  resolved "https://registry.npmjs.org/jsonld-streaming-parser/-/jsonld-streaming-parser-3.2.1.tgz"
-  integrity sha512-MZCUrQe3pBO2pk2i3BpyW9Yn2oZoe2RCRpHZAJa88S6tRyxbe7XcjWfTKAZv35obDJDIREgot4723VhbClJELw==
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/jsonld-streaming-parser/-/jsonld-streaming-parser-3.3.0.tgz#28fd00a1fba93fdae0f588a30fd4cb307d645d37"
+  integrity sha512-6aWiAsWGZioTB/vNQ3KenREz9ddEOliZoEETi+jLrlL7+vkgMeHjnxyFlGe4UOCU7SVUNPhz/lgLGZjnxgVYtA==
   dependencies:
     "@bergos/jsonparse" "^1.4.0"
     "@rdfjs/types" "*"
@@ -3628,7 +3639,7 @@ jsonld-streaming-parser@^3.0.1:
     buffer "^6.0.3"
     canonicalize "^1.0.1"
     http-link-header "^1.0.2"
-    jsonld-context-parser "^2.3.0"
+    jsonld-context-parser "^2.4.0"
     rdf-data-factory "^1.1.0"
     readable-stream "^4.0.0"
 
