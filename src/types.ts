@@ -1,3 +1,5 @@
+import type * as RDF from "@rdfjs/types";
+
 interface Config {
   sparqlQueryUrl: string;
   port: number;
@@ -10,4 +12,9 @@ interface Prefix {
   uri: string;
 }
 
-export { Config, Prefix };
+interface QueryResults {
+  quads: RDF.Quad[];
+  query: string;
+}
+
+export { Config, Prefix, QueryResults };

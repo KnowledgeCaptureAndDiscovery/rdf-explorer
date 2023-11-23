@@ -27,11 +27,12 @@ app.get("/*", (req: Request, res: Response) => {
   req.log.info(`Request for ${uri}`);
   res.format({
     "text/html": async () => {
-      try {
-        const data = await handleQueryHtml(uri, config.sparqlQueryUrl);
+      const data = await handleQueryHtml(uri, config.sparqlQueryUrl);
+      if (data.outcomingQuads.length === 0 && data.incomingQuads.length === 0) {
+        const message = `<h1>Not Found</h1> <p>There is no data for <a href="${uri}">${uri}</a></p> <p> Endpoint: <a href="${config.sparqlQueryUrl}">${config.sparqlQueryUrl}</a></p>`;
+        return res.status(404).send(message);
+      } else {
         return res.render("results", data);
-      } catch (error) {
-        return res.status(404).send("Not Found");
       }
     },
     "application/n-quads": async () => {

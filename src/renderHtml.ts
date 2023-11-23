@@ -4,10 +4,10 @@ import { toPrefix } from "./utils";
 const handleQueryHtml = async (uri: string, endpoint: string) => {
   const outcomingQuads = await performQueryHtml(uri, endpoint);
   const incomingQuads = await performIncomingQueryHtml(uri, endpoint);
-  if (outcomingQuads.length === 0 && incomingQuads.length === 0) {
-    throw new Error("Not Found");
-  }
-  const title = getTitle();
+  const title =
+    outcomingQuads.length === 0 && incomingQuads.length === 0
+      ? "Not Found"
+      : getTitle();
   return {
     incomingQuads: incomingQuads,
     outcomingQuads: outcomingQuads,
