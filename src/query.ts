@@ -1,9 +1,6 @@
 import { Parser, Generator } from "sparqljs";
 import { QueryEngine } from "@comunica/query-sparql";
 
-const myEngine = new QueryEngine();
-const generator = new Generator();
-
 const performQueryHtml = async (uri: string, endpoint: string) => {
   const query = createQuery(uri);
   const stream = await sendQueryQuads(query, endpoint);
@@ -19,30 +16,36 @@ const performIncomingQueryHtml = async (uri: string, endpoint: string) => {
 };
 
 const performQuery = async (uri: string, format: string, endpoint: string) => {
+  console.log("Performing query");
   const query = createQuery(uri);
+  console.log(query);
   const result = await sendQuery(query, endpoint);
-  const triples = serializeResults(result, format);
+  const triples = await serializeResults(result, format);
   return triples;
 };
 
 const sendQuery = async (query: string, endpoint: string) => {
+  const myEngine = new QueryEngine();
   return await myEngine.query(query, {
     sources: [endpoint],
   });
 };
 
 const sendQueryQuads = async (query: string, endpoint: string) => {
+  const myEngine = new QueryEngine();
   return await myEngine.queryQuads(query, {
     sources: [endpoint],
   });
 };
 
 const serializeResults = async (result: any, format: string) => {
+  const myEngine = new QueryEngine();
   const { data } = await myEngine.resultToString(result, format);
   return data;
 };
 
 const createQuery = (uri: string): string => {
+  const generator = new Generator();
   const parser = new Parser();
   const query = `
   CONSTRUCT { <${uri}> ?p ?o }
@@ -55,6 +58,7 @@ const createQuery = (uri: string): string => {
 };
 
 const createQueryIncoming = (uri: string): string => {
+  const generator = new Generator();
   const parser = new Parser();
   const query = `
   CONSTRUCT { ?s ?p <${uri}> }
