@@ -1,5 +1,4 @@
 import express, { Request, Response, Application } from "express";
-import pino from "pino-http";
 import { performQuery } from "./src/query";
 import { config } from "./src/config";
 import { handleQueryHtml } from "./src/renderHtml";
@@ -8,23 +7,19 @@ import { handleQueryHtml } from "./src/renderHtml";
 const app: Application = express();
 const port = config.port;
 const publicDirectory = __dirname + "/public/";
-const logger = pino({
-  level: config.logLevel,
-  autoLogging: false,
-});
 
 app.set("view engine", "pug");
 app.use(express.static(publicDirectory));
-app.use(logger);
 
 const handleQuery = async (uri: string, format: string) => {
+  console.log(`Request for ${uri} in ${format}`);
   return await performQuery(uri, format, config.sparqlQueryUrl);
 };
 
 app.get("/*", (req: Request, res: Response) => {
   const { path } = req;
   const uri = `https:/${path}`;
-  req.log.info(`Request for ${uri}`);
+  console.log(`Request for ${uri}`);
   res.format({
     "text/html": async () => {
       const data = await handleQueryHtml(uri, config.sparqlQueryUrl);
@@ -36,37 +31,48 @@ app.get("/*", (req: Request, res: Response) => {
       }
     },
     "application/n-quads": async () => {
-      return (await handleQuery(uri, "application/n-quads")).pipe(res);
+      const stream = await handleQuery(uri, "application/n-quads");
+      return stream.pipe(res);
     },
     "application/n-triples": async function () {
-      return (await handleQuery(uri, "application/n-triples")).pipe(res);
+      const stream = await handleQuery(uri, "application/n-triples");
+      return stream.pipe(res);
     },
     "application/rdf+xml": async function () {
-      return (await handleQuery(uri, "application/rdf+xml")).pipe(res);
+      const stream = await handleQuery(uri, "application/rdf+xml");
+      return stream.pipe(res);
     },
     "application/n3": async function () {
-      return (await handleQuery(uri, "application/n3")).pipe(res);
+      const stream = await handleQuery(uri, "application/n3");
+      return stream.pipe(res);
     },
     "text/n3": async function () {
-      return (await handleQuery(uri, "text/n3")).pipe(res);
+      const stream = await handleQuery(uri, "text/n3");
+      return stream.pipe(res);
     },
     "application/trig": async function () {
-      return (await handleQuery(uri, "application/trig")).pipe(res);
+      const stream = await handleQuery(uri, "application/trig");
+      return stream.pipe(res);
     },
     "application/trix": async function () {
-      return (await handleQuery(uri, "application/trix")).pipe(res);
+      const stream = await handleQuery(uri, "application/trix");
+      return stream.pipe(res);
     },
     "application/turtle": async function () {
-      return (await handleQuery(uri, "application/turtle")).pipe(res);
+      const stream = await handleQuery(uri, "application/turtle");
+      return stream.pipe(res);
     },
     "text/turtle": async function () {
-      return (await handleQuery(uri, "text/turtle")).pipe(res);
+      const stream = await handleQuery(uri, "text/turtle");
+      return stream.pipe(res);
     },
     "application/x-turtle": async function () {
-      return (await handleQuery(uri, "application/x-turtle")).pipe(res);
+      const stream = await handleQuery(uri, "application/x-turtle");
+      return stream.pipe(res);
     },
     "application/ld+json": async function () {
-      return (await handleQuery(uri, "application/ld+json")).pipe(res);
+      const stream = await handleQuery(uri, "application/ld+json");
+      return stream.pipe(res);
     },
     default: function () {
       // log the request and respond with 406
