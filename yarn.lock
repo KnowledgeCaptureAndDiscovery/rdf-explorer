@@ -2242,16 +2242,16 @@
     "@types/node" "*"
 
 "@types/node@*":
-  version "20.8.10"
-  resolved "https://registry.npmjs.org/@types/node/-/node-20.8.10.tgz"
-  integrity sha512-TlgT8JntpcbmKUFzjhsyhGfP2fsiz1Mv56im6enJ905xG1DAYesxJaeSbGqQmAw8OWPdhyJGhGSQGKRNJ45u9w==
+  version "20.10.1"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.10.1.tgz#d2c96f356c3125fedc983d74c424910c3767141c"
+  integrity sha512-T2qwhjWwGH81vUEx4EXmBKsTJRXFXNZTL4v0gi01+zyBmCwzE6TyHszqX01m+QHTEq+EZNo13NeJIdEqf+Myrg==
   dependencies:
     undici-types "~5.26.4"
 
 "@types/node@^18.0.0":
-  version "18.18.8"
-  resolved "https://registry.npmjs.org/@types/node/-/node-18.18.8.tgz"
-  integrity sha512-OLGBaaK5V3VRBS1bAkMVP2/W9B+H8meUfl866OrMNQqt7wDgdpWPp5o6gmIc9pB+lIQHSq4ZL8ypeH1vPxcPaQ==
+  version "18.18.14"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.18.14.tgz#26771c647f2842af57eb96191cd615d845164295"
+  integrity sha512-iSOeNeXYNYNLLOMDSVPvIFojclvMZ/HDY2dU17kUlcsOsSQETbWIslJbYLZgA+ox8g2XQwSHKTkght1a5X26lQ==
   dependencies:
     undici-types "~5.26.4"
 
