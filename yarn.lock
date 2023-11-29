@@ -542,15 +542,15 @@
     sparqlalgebrajs "^4.2.0"
 
 "@comunica/actor-query-operation-sparql-endpoint@^2.10.0":
-  version "2.10.0"
-  resolved "https://registry.npmjs.org/@comunica/actor-query-operation-sparql-endpoint/-/actor-query-operation-sparql-endpoint-2.10.0.tgz"
-  integrity sha512-9/QDHzFpEGK3P7n5NcYqFOn63szwCcgxStPbGuWwEwKQpUX6fXCiu1q1ul859nruBvK6HTIIeoa1dXaB/sYZGw==
+  version "2.10.1"
+  resolved "https://registry.yarnpkg.com/@comunica/actor-query-operation-sparql-endpoint/-/actor-query-operation-sparql-endpoint-2.10.1.tgz#e25b3f9bbad3d87824eb10e3d5c5dc722e35cad2"
+  integrity sha512-rV+MROUJq07O6KRAh7GtqFLR+raOytf6P9ImNnHNHntiO2ijijWSOdwfiDPkK99aJLqHrma0tlApFnbjeIfVig==
   dependencies:
-    "@comunica/bindings-factory" "^2.10.0"
+    "@comunica/bindings-factory" "^2.10.1"
     "@comunica/bus-http" "^2.10.0"
-    "@comunica/bus-query-operation" "^2.10.0"
+    "@comunica/bus-query-operation" "^2.10.1"
     "@comunica/bus-rdf-resolve-quad-pattern" "^2.10.0"
-    "@comunica/bus-rdf-update-quads" "^2.10.0"
+    "@comunica/bus-rdf-update-quads" "^2.10.1"
     "@comunica/context-entries" "^2.10.0"
     "@comunica/core" "^2.10.0"
     "@comunica/mediatortype-httprequests" "^2.10.0"
@@ -1280,6 +1280,25 @@
     rdf-terms "^1.11.0"
     sparqlalgebrajs "^4.2.0"
 
+"@comunica/actor-rdf-resolve-quad-pattern-federated@^2.10.1":
+  version "2.10.1"
+  resolved "https://registry.yarnpkg.com/@comunica/actor-rdf-resolve-quad-pattern-federated/-/actor-rdf-resolve-quad-pattern-federated-2.10.1.tgz#da8b3fd0801548648da748c0697326d723e1b89d"
+  integrity sha512-OBRTTUWkXKa0ibDzcYLG7aKf3BfQp2j75xm65brRvwstNLmye9ZEq1PrNhbP5UDqQQeCgzPBrb0eGC8Vxek2RA==
+  dependencies:
+    "@comunica/bus-query-operation" "^2.10.1"
+    "@comunica/bus-rdf-metadata-accumulate" "^2.10.0"
+    "@comunica/bus-rdf-resolve-quad-pattern" "^2.10.0"
+    "@comunica/context-entries" "^2.10.0"
+    "@comunica/core" "^2.10.0"
+    "@comunica/data-factory" "^2.7.0"
+    "@comunica/metadata" "^2.10.0"
+    "@comunica/types" "^2.10.0"
+    "@rdfjs/types" "*"
+    asynciterator "^3.8.1"
+    rdf-data-factory "^1.1.1"
+    rdf-terms "^1.11.0"
+    sparqlalgebrajs "^4.2.0"
+
 "@comunica/actor-rdf-resolve-quad-pattern-hypermedia@^2.10.0":
   version "2.10.0"
   resolved "https://registry.npmjs.org/@comunica/actor-rdf-resolve-quad-pattern-hypermedia/-/actor-rdf-resolve-quad-pattern-hypermedia-2.10.0.tgz"
@@ -1450,6 +1469,16 @@
     rdf-data-factory "^1.1.1"
     rdf-string "^1.6.1"
 
+"@comunica/bindings-factory@^2.10.1":
+  version "2.10.1"
+  resolved "https://registry.yarnpkg.com/@comunica/bindings-factory/-/bindings-factory-2.10.1.tgz#809d20ed7602388f8755113d0864001edfebbd50"
+  integrity sha512-AUD3VWlCYljgk5jfaMejSIL9CiX3aV/cAn314e/dYP/rrnVgachcCwyaD8hKHWTBHDs5rcGxr/iwruBOfsERvQ==
+  dependencies:
+    "@rdfjs/types" "*"
+    immutable "^4.1.0"
+    rdf-data-factory "^1.1.1"
+    rdf-string "^1.6.1"
+
 "@comunica/bus-context-preprocess@^2.10.0":
   version "2.10.0"
   resolved "https://registry.npmjs.org/@comunica/bus-context-preprocess/-/bus-context-preprocess-2.10.0.tgz"
@@ -1529,6 +1558,22 @@
   integrity sha512-OSPjD5BO9dfnbkY6oNBZ4/ofqNvczwTs6fgJG2GdcCP4WKJQmhv5wTuDYa9ksQkaYcqs0WiIYMiMABbILLrjjQ==
   dependencies:
     "@comunica/bindings-factory" "^2.10.0"
+    "@comunica/context-entries" "^2.10.0"
+    "@comunica/core" "^2.10.0"
+    "@comunica/data-factory" "^2.7.0"
+    "@comunica/types" "^2.10.0"
+    "@rdfjs/types" "*"
+    asynciterator "^3.8.1"
+    rdf-string "^1.6.1"
+    rdf-terms "^1.11.0"
+    sparqlalgebrajs "^4.2.0"
+
+"@comunica/bus-query-operation@^2.10.1":
+  version "2.10.1"
+  resolved "https://registry.yarnpkg.com/@comunica/bus-query-operation/-/bus-query-operation-2.10.1.tgz#9239bfcb4c0e93f189cf747de521212d17c35d59"
+  integrity sha512-PoUSJeKaMZtZu+ZtB+5ABjPOiW1YjxOdLE1N5znxX2oiDKCQHmAXVaVkbVx1jPDLGYFNcOlOSzpRMqLQ/L4JIw==
+  dependencies:
+    "@comunica/bindings-factory" "^2.10.1"
     "@comunica/context-entries" "^2.10.0"
     "@comunica/core" "^2.10.0"
     "@comunica/data-factory" "^2.7.0"
@@ -1693,6 +1738,20 @@
   integrity sha512-tu1fBdtbBkQfQJiLaAbOZgsQdJDehGNP13Itinmvx/JsgRp40rrUYXg53HLB8CpssCRtHTzMlnSQiPQdwiYpBw==
   dependencies:
     "@comunica/actor-rdf-resolve-quad-pattern-federated" "^2.10.0"
+    "@comunica/bus-http" "^2.10.0"
+    "@comunica/context-entries" "^2.10.0"
+    "@comunica/core" "^2.10.0"
+    "@comunica/types" "^2.10.0"
+    "@rdfjs/types" "*"
+    asynciterator "^3.8.1"
+    stream-to-string "^1.2.0"
+
+"@comunica/bus-rdf-update-quads@^2.10.1":
+  version "2.10.1"
+  resolved "https://registry.yarnpkg.com/@comunica/bus-rdf-update-quads/-/bus-rdf-update-quads-2.10.1.tgz#847a64933058c99606f009735d8151dbf4621c48"
+  integrity sha512-DuAgGsdMbZj7TRALB1uPwEuwZcfdVHMWO2WOJJ0ptZ9ACfKGoe2hHrrE0OeNnfI+1zwq/nIoefKtEgg2Jj7u0g==
+  dependencies:
+    "@comunica/actor-rdf-resolve-quad-pattern-federated" "^2.10.1"
     "@comunica/bus-http" "^2.10.0"
     "@comunica/context-entries" "^2.10.0"
     "@comunica/core" "^2.10.0"
