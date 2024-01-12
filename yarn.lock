@@ -4604,9 +4604,9 @@ spark-md5@^3.0.1:
   integrity sha512-wcFzz9cDfbuqe0FZzfi2or1sgyIrsDwmPwfZC4hiNidPdPINjeUwNfv5kldczoEAcjl9Y1L3SM7Uz2PUEQzxQw==
 
 sparqlalgebrajs@^4.0.0, sparqlalgebrajs@^4.2.0:
-  version "4.3.0"
-  resolved "https://registry.npmjs.org/sparqlalgebrajs/-/sparqlalgebrajs-4.3.0.tgz"
-  integrity sha512-l6Urelb/X5CozXEhfHis37Kbr0iZLS6uuE3pB/NYqvE0A7aYqkkFy+9n8vxEnkfNTg5CLFftYN7ukPyicYrVyw==
+  version "4.3.3"
+  resolved "https://registry.yarnpkg.com/sparqlalgebrajs/-/sparqlalgebrajs-4.3.3.tgz#68c61bb4f2b7e864be0e8f5502e3c86bfda342af"
+  integrity sha512-g5+fYsb+7bNDTR72cCo/BSUgTroYr3hVtf+bAz7jszx6yU8+hHZxcoDuT+zkCA3sfHs/qG9oYDD/TA3UsH07eA==
   dependencies:
     "@rdfjs/types" "*"
     "@types/sparqljs" "^3.1.3"
